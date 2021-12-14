@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+      <form #courseSearch="ngForm" (ngSubmit)="getData()">
+        <div class="mb-3">
+          <label for="courses" class="form-label">Coursenumbers</label>
+          <input
+            type="text"
+            class="form-control"
+            id="courses"
+            [(ngModel)]="courseRequest.coursenumber"
+            required
+            name="courses"
+          />
+        </div>
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="cloudlearning"
+            [(ngModel)]="courseRequest.cloudlearning"
+            name="cloudlearning"
+          />
+          <label class="form-check-label" for="cloudlearning"
+            >Cloudlearning</label
+          >
+        </div>
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="homework"
+            [(ngModel)]="courseRequest.homework"
+            name="homework"
+          />
+          <label class="form-check-label" for="homework">Homework</label>
+        </div>
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="cloudlearning"
+            [(ngModel)]="courseRequest.ebook"
+            name="ebook"
+          />
+          <label class="form-check-label" for="ebook">E-book</label>
+        </div>
+        <div class="d-grid">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!courseSearch.valid"
+          >
+            Get data
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center" *ngIf="courses">
+    <div class="col-12 col-md-6 col-lg-6">
+      <app-course *ngFor="let course of courses" [course]="course"></app-course>
+    </div>
+  </div>
+</div>

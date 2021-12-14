@@ -1,0 +1,41 @@
+<div class="card mt-3" *ngIf="course">
+  <div class="card-header">{{ course.coursenumber }}</div>
+  <div class="card-body">
+    <p class="card-text">
+      Language: {{ course.language }}<br />Level: {{ course.level }}<br />
+      Participants:
+    </p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>E-mail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let participant of course.participants">
+          <td>{{ participant.firstname }}</td>
+          <td>{{ participant.lastname }}</td>
+          <td>{{ participant.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer" *ngIf="course.wordFilePath || course.importFilePath">
+    <a
+      class="btn btn-primary me-2"
+      [href]="baseUrl + course.wordFilePath"
+      [download]="course.wordFilePath.split('/')[1]"
+      *ngIf="course.wordFilePath"
+      >Download WordFile</a
+    >
+    <a
+      class="btn btn-success"
+      [href]="baseUrl + course.importFilePath"
+      [download]="course.importFilePath.split('/')[1]"
+      *ngIf="course.importFilePath"
+      >Download Import File</a
+    >
+  </div>
+</div>
