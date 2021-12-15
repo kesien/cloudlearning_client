@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseApiUrl: 'https://cloudlearning-flying.herokuapp.com/',
+  baseApiUrl: 'https://cloudlearning-flying.herokuapp.com/api/',
 };
