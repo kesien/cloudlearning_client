@@ -34,11 +34,11 @@ export function tokenGetter() {
         tokenGetter: tokenGetter,
         allowedDomains: [
           'cloudlearning-flying.herokuapp.com',
-          'localhost:7040',
+          'localhost:5001',
         ],
         disallowedRoutes: [
           'cloudlearning-flying.herokuapp.com/api/switch/login',
-          'localhost:7040/api/switch/login',
+          'localhost:5001/api/switch/login',
         ],
       },
     }),

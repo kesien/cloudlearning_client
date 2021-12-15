@@ -35,7 +35,10 @@ export class HomeComponent implements OnInit {
   getData() {
     const req: CourseRequest[] = [];
 
-    for (const course of this.courseRequest.coursenumber.split(',')) {
+    for (let course of this.courseRequest.coursenumber.split(',')) {
+      course = course.replace(/\s/g, '');
+      console.log(course);
+
       req.push({
         coursenumber: course,
         cloudlearning: this.courseRequest.cloudlearning,
@@ -46,7 +49,7 @@ export class HomeComponent implements OnInit {
     this.cloudService.getData(req).subscribe(
       (response) => (this.courses = response as CourseResponse[]),
       (error) => this.alertService.error(error),
-      () => console.log(this.courses)
+      () => (this.courseRequest.coursenumber = '')
     );
   }
 }

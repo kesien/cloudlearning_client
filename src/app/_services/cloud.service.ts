@@ -7,7 +7,7 @@ import { CourseRequest } from '../_models/courserequest.model';
   providedIn: 'root',
 })
 export class CloudService {
-  baseUrl = environment.baseApiUrl + 'api/switch/courses';
+  baseUrl = environment.baseApiUrl + 'switch/courses';
   constructor(private http: HttpClient) {}
 
   getData(courses: CourseRequest[]) {
